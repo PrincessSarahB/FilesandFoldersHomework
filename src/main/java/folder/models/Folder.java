@@ -9,41 +9,59 @@ public class Folder {
     private String title;
     private Set<File> files;
     private int id;
+    private Owner owner;
 
-    public Folder(String title) {
+    public Folder(String title, Owner owner) {
         this.title = title;
-        this.files = null;
+        this.owner = owner;
+
     }
 
     public Folder() {
-    }
+        }
 
-    @Column(name="title")
-    public String getTitle() {
-        return title;
-    }
+        @Column(name = "title")
+        public String getTitle () {
+            return title;
+        }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+        public void setTitle (String title){
+            this.title = title;
+        }
 
-    @OneToMany(mappedBy = "folder")
-    public Set<File> getFiles() {
-        return files;
-    }
+        @OneToMany(mappedBy = "folder")
+        public Set<File> getFiles () {
+            return files;
+        }
 
-    public void setFiles(Set<File> files) {
-        this.files = files;
-    }
+        public void setFiles (Set < File > files) {
+            this.files = files;
+        }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    public int getId() {
-        return id;
-    }
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        @Column(name = "id")
+        public int getId () {
+            return id;
+        }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+        public void setId ( int id){
+            this.id = id;
+        }
+
+
+        @ManyToOne
+        @JoinColumn(name="owner_id", nullable = false)
+        public Owner getOwner () {
+            return owner;
+        }
+
+        public void setOwner (Owner owner){
+            this.owner = owner;
+        }
+
+
+
 }
+
+
