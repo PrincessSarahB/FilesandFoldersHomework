@@ -1,3 +1,4 @@
+import folder.db.DBFolder;
 import folder.db.DBHelper;
 import folder.models.File;
 import folder.models.Folder;
@@ -25,12 +26,16 @@ public class Runner {
         File file3 = new File("miscellaneous", ".java", 3.2, folder2);
         DBHelper.save(file3);
 
-
+        DBHelper.delete(file3);
             List<File> files = DBHelper.getAll(File.class);
             List<Folder> folders = DBHelper.getAll(Folder.class);
 
             file2.setName("numberwang");
             DBHelper.save(file2);
+
+            List<File> filesInFolder = DBFolder.getFilesInFolder(folder1);
+
+
 
     }
 }
