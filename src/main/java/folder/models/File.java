@@ -18,6 +18,9 @@ public class File {
         Folder = folder;
     }
 
+    public File() {
+    }
+
     @Column(name="name")
     public String getName() {
         return name;

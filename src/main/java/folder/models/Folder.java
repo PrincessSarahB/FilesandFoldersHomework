@@ -12,7 +12,12 @@ public class Folder {
 
     public Folder(String title) {
         this.title = title;
+        this.files = null;
     }
+
+    public Folder() {
+    }
+
     @Column(name="title")
     public String getTitle() {
         return title;
